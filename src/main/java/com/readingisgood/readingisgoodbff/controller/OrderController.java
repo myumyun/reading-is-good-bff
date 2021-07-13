@@ -3,15 +3,11 @@ package com.readingisgood.readingisgoodbff.controller;
 
 import com.readingisgood.readingisgoodbff.controller.model.*;
 import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodException;
-import com.readingisgood.readingisgoodbff.repository.entity.Order;
-import com.readingisgood.readingisgoodbff.service.CustomerService;
 import com.readingisgood.readingisgoodbff.service.OrderService;
 import com.readingisgood.readingisgoodbff.service.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
