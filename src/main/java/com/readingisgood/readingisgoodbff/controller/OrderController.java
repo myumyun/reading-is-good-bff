@@ -21,14 +21,21 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<AddBookOutput> order(@RequestBody OrderInput input) {
-        CreateOrderRequest request = CreateOrderRequest.builder()
-                .customerId(input.getCustomerId())
-                .bookId(input.getBookId())
-                .count(input.getCount())
-                .build();
-        orderService.order(request);
-        return null;
+    public ResponseEntity<OrderOutput> order(@RequestBody OrderInput input) {
+        OrderOutput output = new OrderOutput();
+        try {
+            CreateOrderRequest request = CreateOrderRequest.builder()
+                    .customerId(input.getCustomerId())
+                    .bookId(input.getBookId())
+                    .count(input.getCount())
+                    .build();
+            orderService.order(request);
+            output.setStatus(Status.SUCCESSFUL);
+        } catch (ReadingIsGoodException e) {
+            output.setStatus(Status.FAILURE);
+            output.setMessage(e.getError().getMessage());
+        }
+        return ResponseEntity.ok(output);
     }
 
     @GetMapping("/getOrder")
@@ -37,9 +44,10 @@ public class OrderController {
         try {
             GetOrderResponse getOrderResponse = orderService.getOrder(new GetOrderRequest(input.getOrderId()));
             output.setOrderDTO(getOrderResponse.getOrderDTO());
-            output.setStatus("successful");
+            output.setStatus(Status.SUCCESSFUL);
         } catch (ReadingIsGoodException e) {
-            output.setStatus("failure");
+            output.setStatus(Status.FAILURE);
+            output.setMessage(e.getError().getMessage());
         }
         return ResponseEntity.ok(output);
     }

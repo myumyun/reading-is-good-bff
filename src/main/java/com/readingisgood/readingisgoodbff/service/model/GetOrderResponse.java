@@ -1,5 +1,6 @@
 package com.readingisgood.readingisgoodbff.service.model;
 
+import com.readingisgood.readingisgoodbff.controller.model.Status;
 import lombok.*;
 
 import java.math.BigDecimal;

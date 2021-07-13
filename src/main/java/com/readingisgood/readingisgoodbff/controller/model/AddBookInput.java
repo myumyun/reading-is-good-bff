@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AddBookInput implements Serializable {
+public class AddBookInput extends BaseInput {
     @NotNull(message = "name of book is missing.")
     private String name;
     @NotNull(message = "price of book is missing.")

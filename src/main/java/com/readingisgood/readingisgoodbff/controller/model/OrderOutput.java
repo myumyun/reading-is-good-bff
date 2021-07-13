@@ -1,6 +1,6 @@
 package com.readingisgood.readingisgoodbff.controller.model;
 
-import com.readingisgood.readingisgoodbff.service.model.OrderDTO;
+import com.readingisgood.readingisgoodbff.service.model.StatisticsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GetOrderOutput extends BaseOutput {
+public class OrderOutput implements Serializable {
     private Status status;
     private String message;
-    private OrderDTO orderDTO;
 }

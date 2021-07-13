@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping
-    public ResponseEntity<AddBookOutput> add(@RequestBody AddBookInput input) {
+    public ResponseEntity<AddBookOutput> add(@Valid @RequestBody AddBookInput input) {
         AddBookOutput output = new AddBookOutput();
         try {
             CreateBookRequest request = CreateBookRequest.builder()
@@ -42,7 +43,7 @@ public class BookController {
     }
 
     @PostMapping("/updateStock")
-    public ResponseEntity<UpdateStockOutput> updateStock(@RequestBody UpdateStockInput input) {
+    public ResponseEntity<UpdateStockOutput> updateStock(@Valid @RequestBody UpdateStockInput input) {
         UpdateStockOutput output = new UpdateStockOutput();
         try {
             UpdateStockRequest request = UpdateStockRequest.builder()
