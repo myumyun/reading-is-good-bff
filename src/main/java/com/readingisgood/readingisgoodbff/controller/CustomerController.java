@@ -17,7 +17,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.font.LayoutPath;
 
 
 @RequiredArgsConstructor
@@ -68,5 +67,4 @@ public class CustomerController {
         output.setOrderDTOList(getCustomerOrderListResponse.getOrderList());
         return ResponseEntity.ok(output);
     }
-
 }

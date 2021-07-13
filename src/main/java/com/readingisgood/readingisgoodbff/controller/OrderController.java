@@ -52,7 +52,7 @@ public class OrderController {
         return ResponseEntity.ok(output);
     }
 
-    @GetMapping
+    @GetMapping("/getOrderList")
     public ResponseEntity<GetOrderListOutput> getOrderList(@RequestBody GetOrderListInput input) {
         GetOrderListOutput output = new GetOrderListOutput();
         GetOrderListResponse getOrderListResponse = orderService.getOrderList(new GetOrderListRequest(input.getStartDate(), input.getEndDate()));
