@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -13,8 +14,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class UpdateStockInput implements Serializable {
-    @NotNull
+    @NotNull(message = "Book id is required.")
     private Long bookId;
-    @NotNull
+    @NotNull(message = "Stock is required.")
+    @NotEmpty(message = "Stock should be valid number.")
     private int stock;
 }

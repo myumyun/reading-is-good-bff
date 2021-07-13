@@ -11,5 +11,6 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 public class AddBookOutput implements Serializable {
-    private String status;
+    private Status status;
+    private String message;
 }

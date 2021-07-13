@@ -1,10 +1,7 @@
 package com.readingisgood.readingisgoodbff.controller;
 
 
-import com.readingisgood.readingisgoodbff.controller.model.AddBookInput;
-import com.readingisgood.readingisgoodbff.controller.model.AddBookOutput;
-import com.readingisgood.readingisgoodbff.controller.model.UpdateStockInput;
-import com.readingisgood.readingisgoodbff.controller.model.UpdateStockOutput;
+import com.readingisgood.readingisgoodbff.controller.model.*;
 import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodException;
 import com.readingisgood.readingisgoodbff.repository.entity.Book;
 import com.readingisgood.readingisgoodbff.service.BookService;
@@ -36,9 +33,10 @@ public class BookController {
                     .price(input.getPrice())
                     .build();
             bookService.create(request);
-            output.setStatus("successful");
+            output.setStatus(Status.SUCCESSFUL);
         } catch (ReadingIsGoodException e) {
-            output.setStatus("failure");
+            output.setStatus(Status.FAILURE);
+            output.setMessage(e.getError().getMessage());
         }
         return ResponseEntity.ok(output);
     }
@@ -52,9 +50,10 @@ public class BookController {
                     .stock(input.getStock())
                     .build();
             bookService.updateStock(request);
-            output.setStatus("successful");
+            output.setStatus(Status.SUCCESSFUL);
         } catch (ReadingIsGoodException e) {
-            output.setStatus("failure");
+            output.setStatus(Status.FAILURE);
+            output.setMessage(e.getError().getMessage());
         }
         return ResponseEntity.ok(output);
     }

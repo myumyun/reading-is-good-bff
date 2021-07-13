@@ -7,17 +7,17 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class AddBookInput implements Serializable {
-    @NotNull
+    @NotNull(message = "name of book is missing.")
     private String name;
-    private String author;
+    @NotNull(message = "price of book is missing.")
     private String price;
     private int stock;
+    private String author;
     private int pageCount;
 }
