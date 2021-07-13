@@ -14,8 +14,8 @@ public enum ReadingIsGoodError {
     BOOK_ALREADY_EXIST_WITH_SAME_NAME(1003, "Book is already exist with the same name."),
     NOT_ENOUGH_STOCK_TO_ORDER(1004, "There is not enough stock to order."),
     ORDER_IS_INVALID(1005, "Order has invalid order id."),
-    ORDER_LIST_DATE_INVALID(1006, "Dates for list orders are invalid.");
-
+    ORDER_LIST_DATE_INVALID(1006, "Dates for list orders are invalid."),
+    CUSTOMER_NOT_FOUND(1007, "Customer is not found.");
     private Integer code;
     private String message;
 }
