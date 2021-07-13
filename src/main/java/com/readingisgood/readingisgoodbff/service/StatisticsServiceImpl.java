@@ -23,18 +23,19 @@ public class StatisticsServiceImpl implements StatisticsService {
         GetStatisticsResponse response = new GetStatisticsResponse();
         Map<String, List<Order>> orderMap = new HashMap<>();
         Optional<List<Order>> orderList = orderRepository.findOrdersByCustomerId(request.getCustomerId());
-        if(orderList.isPresent()){
-            for(Order order: orderList.get()){
+        if (orderList.isPresent()) {
+            for (Order order : orderList.get()) {
                 String month = new SimpleDateFormat("MMM").format(order.getUpdatedAt());
                 List<Order> monthlyOrderList = orderMap.getOrDefault(month, new ArrayList<>());
                 monthlyOrderList.add(order);
+                orderMap.put(month, monthlyOrderList);
             }
             List<StatisticsDTO> statisticsList = new ArrayList<>();
-            for(String month: orderMap.keySet()){
+            for (String month : orderMap.keySet()) {
                 List<Order> monthlyOrderList = orderMap.get(month);
                 int bookCount = 0;
                 BigDecimal purchaseAmount = BigDecimal.ZERO;
-                for(Order order: monthlyOrderList){
+                for (Order order : monthlyOrderList) {
                     bookCount += order.getCount();
                     purchaseAmount.add(order.getAmount());
                 }

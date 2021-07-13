@@ -14,5 +14,5 @@ public class CreateBookRequest extends BaseRequest{
    private String author;
    private int pageCount;
    private int stock;
-   private BigDecimal price;
+   private String price;
 }

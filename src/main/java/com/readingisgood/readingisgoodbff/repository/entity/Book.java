@@ -32,6 +32,4 @@ public class Book {
     private Date createdAt;
     @LastModifiedDate
     private Date updatedAt;
-    @Version
-    private Integer version;
 }

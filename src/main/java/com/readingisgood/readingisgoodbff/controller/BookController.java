@@ -33,7 +33,7 @@ public class BookController {
                     .author(input.getAuthor())
                     .stock(input.getStock())
                     .pageCount(input.getPageCount())
-                    .price(new BigDecimal(input.getPrice()))
+                    .price(input.getPrice())
                     .build();
             bookService.create(request);
             output.setStatus("successful");

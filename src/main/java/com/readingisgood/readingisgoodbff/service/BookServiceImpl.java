@@ -8,6 +8,8 @@ import com.readingisgood.readingisgoodbff.service.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,11 +28,18 @@ public class BookServiceImpl implements BookService {
                     throw new ReadingIsGoodException(ReadingIsGoodError.BOOK_ALREADY_EXIST_WITH_SAME_NAME);
                 });
 
+        BigDecimal price;
+        try {
+            price = new BigDecimal(request.getPrice());
+        } catch (NumberFormatException e) {
+            throw new ReadingIsGoodException(ReadingIsGoodError.BOOK_PRICE_INVALID);
+        }
+
         Book newBook = Book.builder()
                 .id(sequenceGeneratorService.generateSequence(Book.SEQUENCE_NAME))
                 .name(request.getName())
                 .author(request.getAuthor())
-                .price(request.getPrice())
+                .price(price)
                 .stock(request.getStock())
                 .createdAt(new Date())
                 .build();
