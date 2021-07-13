@@ -14,6 +14,5 @@ import java.util.List;
 @Getter
 @Setter
 public class GetOrderListOutput implements Serializable {
-    private String status;
     List<OrderDTO> orderList;
 }

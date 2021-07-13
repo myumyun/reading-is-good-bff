@@ -53,10 +53,11 @@ public class OrderController {
     }
 
     @GetMapping
-    public GetOrderListOutput getOrderList(@RequestBody GetOrderListInput input) {
+    public ResponseEntity<GetOrderListOutput> getOrderList(@RequestBody GetOrderListInput input) {
         GetOrderListOutput output = new GetOrderListOutput();
         GetOrderListResponse getOrderListResponse = orderService.getOrderList(new GetOrderListRequest(input.getStartDate(), input.getEndDate()));
-        return null;
+        output.setOrderList(getOrderListResponse.getOrderList());
+        return ResponseEntity.ok(output);
     }
 
 }
