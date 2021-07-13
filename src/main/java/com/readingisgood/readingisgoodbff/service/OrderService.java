@@ -1,7 +1,6 @@
 package com.readingisgood.readingisgoodbff.service;
 
 import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodException;
-import com.readingisgood.readingisgoodbff.repository.entity.Order;
 import com.readingisgood.readingisgoodbff.service.model.*;
 import org.springframework.stereotype.Service;
 
