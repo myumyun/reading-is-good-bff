@@ -59,17 +59,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public GetCustomerOrderListResponse getCustomerOrderList(GetCustomerOrderListRequest request) {
-        GetCustomerOrderListResponse response = new GetCustomerOrderListResponse();
-        Optional<List<Order>> orderList = orderRepository.findOrdersByCustomerId(request.getCustomerId());
-        if (orderList.isPresent()) {
-            List<OrderDTO> orderDTOList = new ArrayList<>();
-            for (Order order : orderList.get()) {
-                GetBookResponse getBookResponse = bookService.getBook(new GetBookRequest(order.getBookId()));
-                orderDTOList.add(new OrderDTO(getBookResponse.getName(), order.getCount(), order.getUpdatedAt()));
-            }
-            response.setOrderList(orderDTOList);
+        List<OrderDTO> orderDTOList = new ArrayList<>();
+        List<Order> orderList = orderRepository.findOrdersByCustomerId(request.getCustomerId()).orElse(new ArrayList<>());
+        for (Order order : orderList) {
+            GetBookResponse getBookResponse = bookService.getBook(new GetBookRequest(order.getBookId()));
+            orderDTOList.add(new OrderDTO(getBookResponse.getName(), order.getCount(), order.getUpdatedAt()));
         }
-        return response;
+        return new GetCustomerOrderListResponse(orderDTOList);
     }
 
     @Override

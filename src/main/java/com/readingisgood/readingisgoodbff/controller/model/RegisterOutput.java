@@ -12,5 +12,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterOutput implements Serializable {
-    private String status;
+    private Status status;
+    private String message;
 }

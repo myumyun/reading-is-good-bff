@@ -41,6 +41,7 @@ public class BookServiceImpl implements BookService {
                 .author(request.getAuthor())
                 .price(price)
                 .stock(request.getStock())
+                .pageCount(request.getPageCount())
                 .createdAt(new Date())
                 .build();
         bookRepository.save(newBook);

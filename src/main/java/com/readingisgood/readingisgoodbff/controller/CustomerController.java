@@ -1,9 +1,6 @@
 package com.readingisgood.readingisgoodbff.controller;
 
-import com.readingisgood.readingisgoodbff.controller.model.GetCustomerOrderListInput;
-import com.readingisgood.readingisgoodbff.controller.model.GetCustomerOrderListOutput;
-import com.readingisgood.readingisgoodbff.controller.model.RegisterInput;
-import com.readingisgood.readingisgoodbff.controller.model.RegisterOutput;
+import com.readingisgood.readingisgoodbff.controller.model.*;
 import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodException;
 import com.readingisgood.readingisgoodbff.service.CustomerService;
 import com.readingisgood.readingisgoodbff.service.OrderService;
@@ -34,9 +31,10 @@ public class CustomerController {
                     .surname(input.getSurname())
                     .build();
             customerService.create(request);
-            output.setStatus("successful");
+            output.setStatus(Status.SUCCESSFUL);
         } catch (ReadingIsGoodException e) {
-            output.setStatus("failure");
+            output.setStatus(Status.FAILURE);
+            output.setMessage(e.getError().getMessage());
         }
         return ResponseEntity.ok(output);
     }
