@@ -57,9 +57,4 @@ public class BookController {
         }
         return ResponseEntity.ok(output);
     }
-
-    @GetMapping("/getBookList")
-    public List<Book> getBookList() {
-        return bookService.getBookList();
-    }
 }

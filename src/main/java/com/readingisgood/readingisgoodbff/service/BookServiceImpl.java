@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -69,10 +66,5 @@ public class BookServiceImpl implements BookService {
                 .stock(book.getStock())
                 .createdAt(book.getCreatedAt())
                 .build();
-    }
-
-    @Override
-    public List<Book> getBookList() {
-        return bookRepository.findAll();
     }
 }

@@ -15,7 +15,8 @@ public enum ReadingIsGoodError {
     NOT_ENOUGH_STOCK_TO_ORDER(1004, "There is not enough stock to order."),
     ORDER_IS_INVALID(1005, "Order has invalid order id."),
     ORDER_LIST_DATE_INVALID(1006, "Dates for list orders are invalid."),
-    CUSTOMER_NOT_FOUND(1007, "Customer is not found.");
+    CUSTOMER_NOT_FOUND(1007, "Customer is not found."),
+    CUSTOMER_EMAIL_ALREADY_INSERTED(1008, "Customer email is already inserted.");
     private Integer code;
     private String message;
 }
