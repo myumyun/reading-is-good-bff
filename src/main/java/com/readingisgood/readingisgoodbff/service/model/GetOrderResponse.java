@@ -11,6 +11,6 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetOrderResponse extends BaseRequest {
+public class GetOrderResponse extends BaseResponse {
     private OrderDTO orderDTO;
 }

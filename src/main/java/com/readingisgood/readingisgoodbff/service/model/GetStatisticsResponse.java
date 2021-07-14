@@ -9,6 +9,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetStatisticsResponse extends BaseRequest {
+public class GetStatisticsResponse extends BaseResponse {
     List<StatisticsDTO> statisticsList;
 }

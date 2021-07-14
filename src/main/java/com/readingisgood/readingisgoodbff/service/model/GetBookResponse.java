@@ -10,7 +10,7 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetBookResponse extends BaseRequest {
+public class GetBookResponse extends BaseResponse {
     private long bookId;
     private String name;
     private int stock;

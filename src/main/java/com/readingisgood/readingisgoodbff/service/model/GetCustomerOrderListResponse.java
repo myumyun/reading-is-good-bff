@@ -11,6 +11,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetCustomerOrderListResponse extends BaseRequest {
+public class GetCustomerOrderListResponse extends BaseResponse {
     List<OrderDTO> orderList;
 }

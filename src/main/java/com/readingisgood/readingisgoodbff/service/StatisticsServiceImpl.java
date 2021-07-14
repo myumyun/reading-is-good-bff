@@ -1,15 +1,14 @@
 package com.readingisgood.readingisgoodbff.service;
 
-import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodError;
-import com.readingisgood.readingisgoodbff.exception.ReadingIsGoodException;
 import com.readingisgood.readingisgoodbff.repository.OrderRepository;
 import com.readingisgood.readingisgoodbff.repository.entity.Order;
-import com.readingisgood.readingisgoodbff.service.model.*;
+import com.readingisgood.readingisgoodbff.service.model.GetStatisticsRequest;
+import com.readingisgood.readingisgoodbff.service.model.GetStatisticsResponse;
+import com.readingisgood.readingisgoodbff.service.model.StatisticsDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -51,6 +50,4 @@ public class StatisticsServiceImpl implements StatisticsService {
         }
         return response;
     }
-
-
 }

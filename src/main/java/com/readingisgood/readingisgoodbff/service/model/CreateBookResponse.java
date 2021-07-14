@@ -9,6 +9,6 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBookResponse extends BaseRequest {
+public class CreateBookResponse extends BaseResponse {
     private boolean isSuccessful;
 }
