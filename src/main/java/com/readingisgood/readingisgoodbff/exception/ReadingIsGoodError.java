@@ -2,8 +2,6 @@ package com.readingisgood.readingisgoodbff.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
@@ -17,6 +15,7 @@ public enum ReadingIsGoodError {
     ORDER_LIST_DATE_INVALID(1006, "Dates for list orders are invalid."),
     CUSTOMER_NOT_FOUND(1007, "Customer is not found."),
     CUSTOMER_EMAIL_ALREADY_INSERTED(1008, "Customer email is already inserted.");
+
     private Integer code;
     private String message;
 }
